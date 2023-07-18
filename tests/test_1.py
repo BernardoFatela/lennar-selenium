@@ -53,6 +53,3 @@ def test_sign_up(setup,driver):
     parent_div.click()
     click_element(driver, "//button[@aria-label='Create account']", "Create account button not found or not clickable.")
     
-    i=0
-    #click_element(driver,"//div[@class='MPCHoursDropdown_optionWrapper__ENXeX","Clicking dropdown element failed") 
-    
