@@ -1,0 +1,21 @@
+# Ignore geckodriver.log file
+geckodriver.log
+
+# Ignore .vscode folder and its contents
+.vscode/
+
+#Ignore pytest cache
+.pytest_cache/
+
+#Ignore venv files
+env/
+
+
+# Ignore any __pycache__ directories
+__pycache__/
+
+# Ignore the generated .pyc files
+*.pyc
+
+# Ignore any compiled Python bytecode files
+*.pyo
