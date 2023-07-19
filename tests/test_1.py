@@ -1,7 +1,7 @@
 # test_sign_up.py
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import pytest
@@ -20,8 +20,8 @@ def test_sign_up(setup,driver):
 
     click_element(driver, "//button[@aria-label='Continue']", "Continue button not found or not clickable.")
 
-    input_text(driver, "//input[@name='password']", "test1234!", "Password input not found or not validating password properly.")
-    input_text(driver, "//input[@name='confirmPassword']", "test1234!", "Password input not found or not validating password properly.")
+    input_text(driver, "//input[@name='password']", "Test1234!", "Password input not found or not validating password properly.")
+    input_text(driver, "//input[@name='confirmPassword']", "Test1234!", "Password input not found or not validating password properly.")
 
     time.sleep(2)
     click_element(driver, "//button[@aria-label='Continue']", "Continue button not found or not clickable.")
@@ -48,8 +48,12 @@ def test_sign_up(setup,driver):
     dropdown_element = dropdown_elements[1]
     driver.execute_script("arguments[0].scrollIntoView(true);", dropdown_element)
     dropdown_element.click()
-    parent_div = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(text(), 'Alabama')]/ancestor::div[@class='MPCHoursDropdown_optionWrapper__ENXeX']")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", parent_div)
-    parent_div.click()
+    alabama_option = driver.find_element(By.ID, 'react-select-state-option-0')
+
+
+    driver.execute_script("arguments[0].scrollIntoView(true);", alabama_option)
+    # Click on the alabama element
+    
+    alabama_option.click()
     click_element(driver, "//button[@aria-label='Create account']", "Create account button not found or not clickable.")
     
